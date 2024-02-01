@@ -145,22 +145,21 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'rebelot/kanagawa.nvim',
-    priority = 1000,
+   'rebelot/kanagawa.nvim',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      vim.cmd.colorscheme 'kanagawa-dragon'
-    end,
+      vim.cmd('colorscheme kanagawa-dragon')
+    end
   },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = true,
-        theme = 'onedark',
+        icons_enabled = false,
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
@@ -173,8 +172,8 @@ require('lazy').setup({
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
     opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
+      char = '|',
+      show_trailing_blankline_indent = true,
     },
   },
 
@@ -449,9 +448,9 @@ end
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
+   clangd = {},
   -- gopls = {},
-  -- pyright = {},
+   pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -536,12 +535,9 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
 --
---
---
+-- -- -- The line beneath this is called `modeline`. See `:help modeline`
+-- -- -- vim: ts=2 sts=2 sw=2 et
 -- Default options:
 require('kanagawa').setup({
     compile = false,             -- enable compiling the colorscheme
@@ -554,6 +550,7 @@ require('kanagawa').setup({
     transparent = true,         -- do not set background color
     dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
     terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+    lineNr = false,
     colors = {                   -- add/modify theme and palette colors
         palette = {},
         theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
@@ -570,3 +567,7 @@ require('kanagawa').setup({
 
 -- setup must be called before loading
 vim.cmd("colorscheme kanagawa-dragon")
+vim.cmd('set cursorline')
+vim.cmd('set nowrap')
+vim.cmd('highlight clear lineNr')
+vim.cmd('highlight clear signcolumn')

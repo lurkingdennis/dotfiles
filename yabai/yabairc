@@ -1,0 +1,75 @@
+# runs yabai without a password
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# main config
+
+yabai -m config layout bsp
+
+# New window spawns to the left if vertical split, or top if horizontal split
+yabai -m config window_placement first_child
+
+# Set all padding and gaps to 20pt (default: 0)
+yabai -m config top_padding    2
+yabai -m config bottom_padding 2
+yabai -m config left_padding   2 
+yabai -m config right_padding  2
+yabai -m config window_gap     2
+
+# turns off auto split adjust
+yabai -m config auto_balance off
+
+# split ratio
+yabai -m config split_ratio 0.5
+
+# float window
+yabai -m rule --add app=Finder manage=off
+yabai -m rule --add app=Tweetbot manage=off
+# yabai -m rule --add app=Photoshop manage=off
+# yabai -m rule --add app=Illustrator  manage=off
+yabai -m rule --add app=Vox manage=off
+yabai -m rule --add app=checkra1n manage=off
+yabai -m rule --add app=ColorSlurp manage=off
+yabai -m rule --add app=System Preferences manage=off
+yabai -m rule --add app=VOX manage=off
+yabai -m rule --add app=The\ Unarchiver manage=off
+yabai -m rule --add app=System\ Preferences manage=off
+yabai -m rule --add app=CleanMyMac\ X manage=off
+yabai -m rule --add app=1Password\ 7 manage=off
+yabai -m rule --add app=1Password manage=off
+yabai -m rule --add app=1Password manage=off
+yabai -m rule --add app=Surfshark manage=off
+yabai -m rule --add app=Calculator manage=off
+yabai -m rule --add app=Kodi manage=off
+yabai -m rule --add app=VLC manage=off
+yabai -m rule --add app="Axis & Allies 1942 Online" manage=off
+yabai -m rule --add app="AxisAndAllies1942Online" manage=off
+yabai -m rule --add app="Alfred Preferences" manage=off
+yabai -m rule --add app="NepTunes" manage=off  
+yabai -m rule --add app="Firefox Developer Edition" title="^Opening .*$" manage=off  
+yabai -m rule --add app="Firefox Developer Edition" title="^Extension: (Metamask) - Metamask Notification$" manage=off
+yabai -m rule --add app="Firefox Developer Edition" title="^Extension Notification$" manage=off
+yabai -m rule --add app="Firefox Developer Edition" title="^Extension$" manage=off
+yabai -m rule --add app="Firefox Developer Edition" title="Extension: (Metamask) - Metamask Notification" manage=off
+yabai -m rule --add app="Firefox Developer Edition" title="^Extension$" manage=off
+yabai -m rule --add app="Firefox Developer Edition" title="^MetaMask$" manage=off
+yabai -m rule --add app="Firefox Developer Edition" title="^Extension$" manage=off
+yabai -m rule --add app="Firefox Developer Edition" title="^Library$" manage=off  
+yabai -m rule --add app="PathOfExileClient" manage=off
+yabai -m rule --add app="ImageOptim" manage=off
+yabai -m rule --add app="VirtualBox" manage=off
+yabai -m rule --add app="VirtualBox VM" manage=off
+yabai -m rule --add app="Windows10" manage=off
+yabai -m rule --add app="Windows10 [Running]" manage=off
+yabai -m rule --add app="Stats" manage=off
+yabai -m rule --add app="Steam" manage=off
+yabai -m rule --add app="csgo_osx64" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
+yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
+yabai -m rule --add label="mpv" app="^mpv$" manage=off
+yabai -m rule --add label="Software Update" title="Software Update" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
+yabai -m rule --add label="IINA" app="^IINA$" manage=off
+yabai -m rule --add app="Fantastical" manage=off
