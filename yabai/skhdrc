@@ -1,6 +1,6 @@
 # Open App Bindings
 cmd - return : open -na "iterm" 
-cmd - b : open -na ""
+cmd - b : open -na "Brave Browser"
 
 # Navigation
 cmd - h : yabai -m window --focus west
@@ -40,3 +40,5 @@ cmd + lctrl - f : \
 # Rotate windows clockwise and anticlockwise
 cmd - r         : yabai -m space --rotate 270
 cmd + shift - r : yabai -m space --rotate 90
+
+cmd - c : yabai -m window --close; yabai -m window --focus recent
